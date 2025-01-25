@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>راهنمای ربات</title>
+    <style>
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff);
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    animation: fade-in 1s ease-out;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+h1 {
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007acc;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.section {
+    margin-bottom: 30px;
+}
+
+.section h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #0066cc;
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #007acc;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: #f0f8ff;
+    margin: 15px 0;
+    padding: 15px;
+    border-radius: 15px;
+    display: block;
+    gap: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    line-height: 1.6;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.command {
+    font-weight: bold;
+    color: #333;
+}
+
+.copy-btn {
+    background: #007acc;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    align-self: flex-start;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    position: relative;
+    overflow: hidden;
+}
+
+.copy-btn:hover {
+    background: #005f99;
+    transform: scale(1.05);
+}
+
+.copy-btn svg {
+    width: 18px;
+    height: 18px;
+}
+
+.footer {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+
+.copy-btn.clicked {
+    background: #4caf50 !important;
+    color: white !important;
+}
+
+.copy-btn.clicked::after {
+    content: "کپی شد";
+    color: white;
+    font-size: 12px;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: -25px;
+}
+ul {
+    margin-top: 20px;
+}
+
+li {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+li span {
+    display: block; 
+}
+
+li .command {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+footer {
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>راهنمای دستورات ربات</h1>
+
+        <div class="section">
+            <h2>دستورات مدیریتی</h2>
+            <ul>
+                <li>
+                    <span class="command">/ban</span>
+                    <span>• مسدود کردن کاربر</span>
+                    <button class="copy-btn" onclick="copyToClipboard('/ban', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+                <li>
+                    <span class="command">/unban</span>
+                    <span>• رفع مسدودیت کاربر</span>
+                    <button class="copy-btn" onclick="copyToClipboard('/unban', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>دستورات سرگرمی</h2>
+            <ul>
+                <li>
+                    <span class="command">جوک</span>
+                    <span>• ارسال یک جوک تصادفی</span>
+                    <button class="copy-btn" onclick="copyToClipboard('جوک', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+                <li>
+                    <span class="command">دانستنی</span>
+                    <span>• ارسال یک دانستنی جالب</span>
+                    <button class="copy-btn" onclick="copyToClipboard('دانستنی', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>دستورات کاربردی</h2>
+            <ul>
+                <li>
+                    <span class="command">وضعیت استیم</span>
+                    <span>• بررسی وضعیت سرورهای استیم</span>
+                    <button class="copy-btn" onclick="copyToClipboard('وضعیت استیم', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+                <li>
+                    <span class="command">قیمت ارز</span>
+                    <span>• نمایش قیمت لحظه‌ای ارزهای دیجیتال</span>
+                    <button class="copy-btn" onclick="copyToClipboard('قیمت ارز', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+                <li>
+                    <span class="command">QR متن|رنگ|رنگ پس زمینه|شفافیت</span>
+                    <span>• ساخت QR کد با شخصی سازی بالا. 
+
+لیست رنگ های پشتیبانی شده :  darkblue, lightred, darkred, lightgreen, darkgreen, lightgray, darkgray, lightyellow, darkyellow, lightcyan, darkcyan
+⁕ این رنگ ها برای پس زمینه و خود کیو آر کد هستند و دقت کنید درصد شفافیت بین 0 تا 100 باشد.</span>
+                    <button class="copy-btn" onclick="copyToClipboard('قیمت ارز', this)">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" />
+                        </svg>
+                        کپی
+                    </button>
+                </li>
+            </ul>
+        </div>
+
+        <div class="footer">برای استفاده از دستورات، متن را کپی کرده و به ربات ارسال کنید.</div>
+    </div>
+    <script>
+      function copyToClipboard(text, button) {
+    navigator.clipboard.writeText(text).then(() => {
+        button.classList.add('clicked');
+        button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" /></svg> کپی شد`;
+
+        setTimeout(() => {
+            button.classList.remove('clicked');
+            button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16l-4-4m0 0l4-4m-4 4h16" /></svg> کپی`;
+        }, 3000);
+    }, () => {
+        console.error('خطا در کپی کردن دستور!');
+    });
+}
+
+    </script>
+</body>
+</html>
